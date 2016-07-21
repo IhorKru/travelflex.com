@@ -101,6 +101,19 @@
         </div>
     <div class="slant"></div>
 </section>
+<section>
+     <div class="window-BG" id="alert">
+        <div class="window">
+            <div id="alert-title" class="win-img-text">{{ 'Please solve below errors'|trans }}:</div>
+            <div id="alert-text" class="win-text">
+                <div style="color: white; text-align: justify;">
+                    {{ form_errors(form1) }}
+                </div>    
+            </div>
+            <div class="window-close win-close-2">{{ 'Close'|trans }}</div>
+        </div>
+    </div>
+</section>
 <section id="fh5co-intro">
     <div class="container">
         <div class="row row-bottom-padded-lg">
@@ -137,7 +150,6 @@
         </div>
         <div class="row watch-video text-center to-animate">
             <span>Watch the video</span>
-
             <a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo btn-video"><i class="icon-play2"></i></a>
         </div>
     </div>
@@ -359,99 +371,81 @@
 </section>
 
 <section id="fh5co-about" data-section="about">
-        <div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading text-center">
+                <h2 class="to-animate">Our Values</h2>
                 <div class="row">
-                        <div class="col-md-12 section-heading text-center">
-                                <h2 class="to-animate">About</h2>
-                                <div class="row">
-                                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
-                                                <h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
-                                        </div>
-                                </div>
-                        </div>
+                    <div class="col-md-8 col-md-offset-2 subtext to-animate">
+                        <h3>Below are only some of the "what we do and how we do it" for our dedicated customers and subscribers</h3>
+                    </div>
                 </div>
-                <div class="row">
-                        <div class="col-md-4">
-                                <div class="fh5co-person text-center to-animate">
-                                        <figure><img src="../images/person1.jpg" alt="Image"></figure>
-                                        <h3>Jean Smith</h3>
-                                        <span class="fh5co-position">Web Designer</span>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-                                        <ul class="social social-circle">
-                                                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                                        </ul>
-                                </div>
-                        </div>
-                        <div class="col-md-4">
-                                <div class="fh5co-person text-center to-animate">
-                                        <figure><img src="../images/person2.jpg" alt="Image"></figure>
-                                        <h3>Rob Smith</h3>
-                                        <span class="fh5co-position">Web Developer</span>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-                                        <ul class="social social-circle">
-                                                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-github"></i></a></li>
-                                        </ul>
-                                </div>
-                        </div>
-                        <div class="col-md-4">
-                                <div class="fh5co-person text-center to-animate">
-                                        <figure><img src="../images/person3.jpg" alt="Image"></figure>
-                                        <h3>Larry Ben</h3>
-                                        <span class="fh5co-position">Web Designer</span>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-                                        <ul class="social social-circle">
-                                                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                                        </ul>
-                                </div>
-                        </div>
-                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="fh5co-person text-center to-animate">
+                    <figure><img src="../images/person1.jpg" alt="Image"></figure>
+                    <h3>Dedication</h3>
+                    <p>To our subscribers, partners and affiliates to make sure be bring the best added value though our marketing campaigns</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fh5co-person text-center to-animate">
+                    <figure><img src="../images/person2.jpg" alt="Image"></figure>
+                    <h3>Commitment</h3>
+                    <p>To our goal of becoming primary source of best travel deal and advice for whoever looking for one</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="fh5co-person text-center to-animate">
+                    <figure><img src="../images/person3.jpg" alt="Image"></figure>
+                    <h3>Value</h3>
+                    <p>In everything that we do, to anyone we do business with through constant and persistent work</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="fh5co-counters" style="background-image: url(../images/full_image_1.jpg);" data-stellar-background-ratio="0.5">
-        <div class="fh5co-overlay"></div>
-        <div class="container">
-                <div class="row">
-                        <div class="col-md-12 section-heading text-center to-animate">
-                                <h2>Fun Facts</h2>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="fh5co-counter to-animate">
-                                        <i class="fh5co-counter-icon icon-briefcase to-animate-2"></i>
-                                        <span class="fh5co-counter-number js-counter" data-from="0" data-to="89" data-speed="5000" data-refresh-interval="50">89</span>
-                                        <span class="fh5co-counter-label">Finished projects</span>
-                                </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="fh5co-counter to-animate">
-                                        <i class="fh5co-counter-icon icon-code to-animate-2"></i>
-                                        <span class="fh5co-counter-number js-counter" data-from="0" data-to="2343409" data-speed="5000" data-refresh-interval="50">2343409</span>
-                                        <span class="fh5co-counter-label">Line of codes</span>
-                                </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="fh5co-counter to-animate">
-                                        <i class="fh5co-counter-icon icon-cup to-animate-2"></i>
-                                        <span class="fh5co-counter-number js-counter" data-from="0" data-to="1302" data-speed="5000" data-refresh-interval="50">1302</span>
-                                        <span class="fh5co-counter-label">Cup of coffees</span>
-                                </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="fh5co-counter to-animate">
-                                        <i class="fh5co-counter-icon icon-people to-animate-2"></i>
-                                        <span class="fh5co-counter-number js-counter" data-from="0" data-to="52" data-speed="5000" data-refresh-interval="50">52</span>
-                                        <span class="fh5co-counter-label">Happy clients</span>
-                                </div>
-                        </div>
-                </div>
+    <div class="fh5co-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading text-center to-animate">
+                <h2>Fun Facts</h2>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fh5co-counter to-animate">
+                    <i class="fh5co-counter-icon icon-briefcase to-animate-2"></i>
+                    <span class="fh5co-counter-number js-counter" data-from="0" data-to="89" data-speed="5000" data-refresh-interval="50">89</span>
+                    <span class="fh5co-counter-label">Partners</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fh5co-counter to-animate">
+                    <i class="fh5co-counter-icon icon-code to-animate-2"></i>
+                    <span class="fh5co-counter-number js-counter" data-from="0" data-to="2343409" data-speed="5000" data-refresh-interval="50">2343409</span>
+                    <span class="fh5co-counter-label">Line of codes</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fh5co-counter to-animate">
+                    <i class="fh5co-counter-icon icon-cup to-animate-2"></i>
+                    <span class="fh5co-counter-number js-counter" data-from="0" data-to="1302" data-speed="5000" data-refresh-interval="50">1302</span>
+                    <span class="fh5co-counter-label">Destinations</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="fh5co-counter to-animate">
+                    <i class="fh5co-counter-icon icon-people to-animate-2"></i>
+                    <span class="fh5co-counter-number js-counter" data-from="0" data-to="2367891" data-speed="5000" data-refresh-interval="50">2367891</span>
+                    <span class="fh5co-counter-label">Subscribers</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
