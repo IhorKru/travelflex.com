@@ -14,15 +14,14 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-nav-section="home"><span>Home</span></a></li>
-                    <li><a href="#" data-nav-section="work"><span>Work</span></a></li>
-                    <li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li>
-                    <li><a href="#" data-nav-section="services"><span>Services</span></a></li>
-                    <!--<li><a href="#" data-nav-section="about"><span>About</span></a></li>-->
+                    <li><a class="external" href="{{ path('index') }}" data-nav-section="home"><span>Home</span></a></li>
+                    <li><a class="external" href="{{ path('index') }}#fh5co-work" data-nav-section="work"><span>Work</span></a></li>
+                    <li><a class="external" href="{{ path('index') }}#fh5co-testimonials" data-nav-section="testimonials"><span>Testimonials</span></a></li>
+                    <li><a class="external" href="{{ path('index') }}#fh5co-services" data-nav-section="services"><span>Services</span></a></li>
                     <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
-                    <li><a href="{{ path('terms') }}"><span>Terms</span></a></li>
-                    <li class="active"><a href="{{ path('privacy') }}"><span>Privacy</span></a></li>
-                    <li><a href="{{ path('unsubscribe') }}"><span>Unsubscribe</span></a></li>
+                    <li><a class="external" href="{{ path('terms') }}"><span>Terms</span></a></li>
+                    <li><a class="external" href="{{ path('privacy') }}"><span>Privacy</span></a></li>
+                    <li><a class="external" href="{{ path('unsubscribe') }}"><span>Unsubscribe</span></a></li>
                 </ul>
             </div>
         </nav>
