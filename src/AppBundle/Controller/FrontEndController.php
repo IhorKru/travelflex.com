@@ -142,17 +142,21 @@ class FrontEndController extends Controller
      * @Method("GET")
      */
     public function verifyEmailAction(Request $request, $emailaddress) {
+        
         $em = $this->getDoctrine()->getManager();
         $subscriber = $em->getRepository('AppBundle:Subscriber')->findOneByEmailaddress($emailaddress);
-
+        
         if(!$subscriber) {
             throw $this->createNotFoundException('U bettr go awai!');
         }
 
         $equals = (strcmp($subscriber->getHash(), $request->get("id", "")) === 0 && strcmp($subscriber->getEmailAddress(), $emailaddress) === 0);
         if($equals) {
+            
             $subscriber->setSubscriptionDate(new DateTime());
             $subscriber->setSubscriptionIp($_SERVER['REMOTE_ADDR']);
+            
+             $em->persist($newSubscriptionDetails);
             $em->persist($subscriber);
             $em->flush();
             return $this->redirect($this->generateUrl('index'));
