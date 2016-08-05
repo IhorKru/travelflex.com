@@ -156,7 +156,7 @@ class FrontEndController extends Controller
             $subscriber->setSubscriptionDate(new DateTime());
             $subscriber->setSubscriptionIp($_SERVER['REMOTE_ADDR']);
             
-             $em->persist($newSubscriptionDetails);
+            $em->persist($newSubscriptionDetails);
             $em->persist($subscriber);
             $em->flush();
             return $this->redirect($this->generateUrl('index'));
