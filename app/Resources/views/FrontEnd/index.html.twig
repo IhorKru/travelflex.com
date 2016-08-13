@@ -72,19 +72,25 @@
                                 </div>
                                 <div class="picklist-style">
                                     <div class="checkbox input-group margin-bottom-sm col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
-                                        {{ form_widget(form1.agreeterms) }}
-                                        <lable> {{ 'I have read and agreed to ' }} <a href="{{ path('terms') }}"> {{ 'TravelFlex Terms & Conditions' }} </a> </lable>
-                                        {{ form_row(form1.agreeterms) }}
+                                        {% for field in form1.optindetails %}
+                                            {{ form_widget(field.agreeterms) }}
+                                            <lable> {{ 'I have read and agreed to ' }} <a href="{{ path('terms') }}" target="_blank"> {{ 'Terms & Conditions' }} </a> </lable>
+                                            {{ form_row(field.agreeterms) }}
+                                        {% endfor %}  
                                     </div>
                                     <div class="checkbox input-group margin-bottom-sm col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
-                                        {{ form_widget(form1.agreeemails) }}
-                                         <lable> {{ 'I want to get emails from TravelFlex.com' }} </lable>
-                                        {{ form_row(form1.agreeemails) }}
+                                        {% for field in form1.optindetails %}
+                                            {{ form_widget(field.agreeemails) }}
+                                            <lable> {{ 'I want to get emails from TravelFlex.com' }} </lable>
+                                            {{ form_row(field.agreeemails) }}
+                                        {% endfor %} 
                                     </div>
                                     <div class="checkbox input-group margin-bottom-sm col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
-                                        {{ form_widget(form1.agreepartners) }}
-                                        <lable> {{ 'I want to get mails from Partners of TravelFlex.com' }} </lable>
-                                        {{ form_row(form1.agreepartners) }}
+                                        {% for field in form1.optindetails %}
+                                            {{ form_widget(field.agreepartners) }}
+                                            <lable> {{ 'I want to get mails from Partners of TravelFlex.com' }} </lable>
+                                            {{ form_row(field.agreepartners) }}
+                                        {% endfor %}
                                     </div>
                                 </div>
                                     {{ form_row(form1.submit, { 'label': 'Subscribe to join' }) }}
@@ -107,6 +113,9 @@
             <div id="alert-text" class="win-text">
                 <div style="color: white; text-align: justify;">
                     {{ form_errors(form1) }}
+                    {% for field in form1.optindetails %}
+                            {{ form_errors(field) }}
+                    {% endfor %}
                 </div>    
             </div>
             <div class="window-close win-close-2">{{ 'Close'|trans }}</div>
@@ -116,7 +125,7 @@
 <section id="fh5co-intro">
     <div class="container">
         <div class="row row-bottom-padded-lg">
-            <div class="fh5co-block to-animate" style="background-image: url(../images/img_7.jpg);">
+            <div class="fh5co-block to-animate backimgone">
                 <div class="overlay-darker"></div>
                 <div class="overlay"></div>
                 <div class="fh5co-text">
@@ -126,7 +135,7 @@
                     <p><a href="#" class="btn btn-primary">Subscribe</a></p>
                 </div>
             </div>
-            <div class="fh5co-block to-animate" style="background-image: url(../images/img_8.jpg);">
+            <div class="fh5co-block to-animate backimgtwo">
                 <div class="overlay-darker"></div>
                 <div class="overlay"></div>
                 <div class="fh5co-text">
@@ -136,7 +145,7 @@
                     <p><a href="#" class="btn btn-primary">Subscribe</a></p>
                 </div>
             </div>
-            <div class="fh5co-block to-animate" style="background-image: url(../images/img_10.jpg);">
+            <div class="fh5co-block to-animate backimgthree">
                 <div class="overlay-darker"></div>
                 <div class="overlay"></div>
                 <div class="fh5co-text">
@@ -168,8 +177,8 @@
         </div>
         <div class="row row-bottom-padded-sm">
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p1.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p1.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p1.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p1.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Romantic Couple Destinations</h2>
                         <span>Paris, Milano, Roma - top romantic destinations are one step away only with Travel Flex</span>
@@ -177,8 +186,8 @@
                 </a>
             </div>
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p2.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p2.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p2.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p2.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Ocean Cruises</h2>
                         <span>For those who is in love with the ocean, Travel Flex got wide variety cruise destinations</span>
@@ -189,8 +198,8 @@
             <div class="clearfix visible-sm-block"></div>
 
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p3.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p3.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p3.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p3.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Business Travel</h2>
                         <span>Are you working and would love to combine business travel with with some time off.</span>
@@ -198,8 +207,8 @@
                 </a>
             </div>
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p8.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p8.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p8.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p8.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Luxury Transport</h2>
                         <span>Once you got where you wanted, Travel Flex will help you get arround most suitable way.</span>
@@ -210,8 +219,8 @@
             <div class="clearfix visible-sm-block"></div>
 
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p5.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p5.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p5.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p5.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Highest Level of Service</h2>
                         <span>Spend time not going througn travel deals, Travel Flex is targeted for revevant deals only!</span>
@@ -219,8 +228,8 @@
                 </a>
             </div>
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p4.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p4.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p4.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p4.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Sightseeing tours</h2>
                         <span>Sightseeing tours are not for everyone. Travel Flex got you covered on this one as well.</span>
@@ -231,8 +240,8 @@
             <div class="clearfix visible-sm-block"></div>
 
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p7.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p7.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p7.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p7.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Offers for Seniors</h2>
                         <span>Knowing that some of our senior subscribers might have some sp8ecific travel offer requirements, Travel Flex</span>
@@ -240,8 +249,8 @@
                 </a>
             </div>
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p6.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p6.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p6.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p6.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Self-Guided Tours and Travel Assistance</h2>
                         <span>At some point in life everyone of us wanted to just pack a bag and go wonder arround the gloab without any specific plans.</span>
@@ -252,8 +261,8 @@
             <div class="clearfix visible-sm-block"></div>
 
             <div class="col-md-4 col-sm-6 col-xxs-12">
-                <a href="../images/p9.jpg" class="fh5co-project-item image-popup to-animate">
-                    <img src="../images/p9.jpg" alt="Image" class="img-responsive">
+                <a href="{{ asset('images/p9.jpg') }}" class="fh5co-project-item image-popup to-animate">
+                    <img src="{{ asset('images/p9.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Sales & Offers</h2>
                         <span>Knowing that travel budget is limited for most of us, Travel Flex is ready to offer affordable options </span>
@@ -283,7 +292,7 @@
                         <p>&ldquo;Travel Flex helped us out big time when me and my friends wanted to book last minute beach vacation. We found a perfect match in one of their regular email campaigns. Thanks alot to TravelFlex&rdquo;</p>
                     </blockquote>
                     <div class="author to-animate">
-                        <figure><img src="../images/person1.jpg" alt="Person"></figure>
+                        <figure><img src="{{ asset('images/person1.jpg') }}" alt="Person"></figure>
                         <p>
                         John P. Chicago, IL
                         </p>
@@ -296,7 +305,7 @@
                         <p>&ldquo;I neven though booking a ski trip for the whole famaly would be that easy. With limited budget and short time TravelFlex helped us making our Christmas vacation unforgetable and one of a kind&rdquo;</p>
                     </blockquote>
                     <div class="author to-animate">
-                        <figure><img src="../images/person2.jpg" alt="Person"></figure>
+                        <figure><img src="{{ asset('images/person2.jpg') }}" alt="Person"></figure>
                         <p>
                         Kate M. Virginia Beach, VA
                         </p>
@@ -310,7 +319,7 @@
                         <p>&ldquo;TravelFlex offers are always exactly what we are looking for. Even when we are not looking to travel anywhere at that specific moment. We found a whole bunch of interesting staff within their email campaigns that made our future travel pleasant&rdquo;</p>
                     </blockquote>
                     <div class="author to-animate">
-                        <figure><img src="../images/person3.jpg" alt="Person"></figure>
+                        <figure><img src="{{ asset('images/person3.jpg') }}" alt="Person"></figure>
                         <p>
                         Kim P. Los Angeles, CA
                         </p>
@@ -329,14 +338,14 @@
                 <h2 class=" left-border to-animate">Services</h2>
                 <div class="row">
                     <div class="col-md-12 subtext to-animate" style="text-align: justify">
-                            <h3>Every once in a while every one of us have had a wish to go some place they have never been before, re-discover the world
-                            arround us. But for some reason have not had right campanion, that would show the way. Someone, who will intorduce you
-                            to the wonderfull world of travel and adventure. Knowing this as well as how important it is for you from time to time to get way from daily routine and enjoy time off with friends 
-                            and family, we have created <a> Travel Flex </a>. We connet our subscribers to travel and vacation opportunities 
-                            from top vendors and our srusted partners by means email campaings.<br>
-                            By becoming our subscriber you are getting one step closer to vacation you have always dreamt of. Whether it's a place 
-                            next to home or on the other side of the globe, <a> Travel Flex </a> will do its best to provide you with
-                            best possible deals for world's most popular destinations.</h3>
+                        <h3>Every once in a while every one of us have had a wish to go some place they have never been before, re-discover the world
+                        arround us. But for some reason have not had right campanion, that would show the way. Someone, who will intorduce you
+                        to the wonderfull world of travel and adventure. Knowing this as well as how important it is for you from time to time to get way from daily routine and enjoy time off with friends 
+                        and family, we have created <a> Travel Flex </a>. We connet our subscribers to travel and vacation opportunities 
+                        from top vendors and our srusted partners by means email campaings.<br>
+                        By becoming our subscriber you are getting one step closer to vacation you have always dreamt of. Whether it's a place 
+                        next to home or on the other side of the globe, <a> Travel Flex </a> will do its best to provide you with
+                        best possible deals for world's most popular destinations.</h3>
                     </div>
                 </div>
             </div>
@@ -384,21 +393,21 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="fh5co-person text-center to-animate">
-                    <figure><img src="../images/person1.jpg" alt="Image"></figure>
+                    <figure><img src="{{ asset('images/person1.jpg') }}" alt="Image"></figure>
                     <h3>Dedication</h3>
                     <p>To our subscribers, partners and affiliates to make sure be bring the best added value though our marketing campaigns</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="fh5co-person text-center to-animate">
-                    <figure><img src="../images/person2.jpg" alt="Image"></figure>
+                    <figure><img src="{{ asset('images/person2.jpg') }}" alt="Image"></figure>
                     <h3>Commitment</h3>
                     <p>To our goal of becoming primary source of best travel deal and advice for whoever looking for one</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="fh5co-person text-center to-animate">
-                    <figure><img src="../images/person3.jpg" alt="Image"></figure>
+                    <figure><img src="{{ asset('images/person3.jpg') }}" alt="Image"></figure>
                     <h3>Value</h3>
                     <p>In everything that we do, to anyone we do business with through constant and persistent work</p>
                 </div>

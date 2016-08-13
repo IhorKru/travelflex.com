@@ -4,10 +4,10 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class SubscriberType extends AbstractType {
     /**
@@ -21,67 +21,43 @@ class SubscriberType extends AbstractType {
                 'label' => false,
                 'required' => true,
                 'error_bubbling' => true,
-                'attr' => [
-                    'placeholder' => 'First Name',
-                    'class' => 'form-control',
-                    'style' => 'color:white; height:2.7em'
-                    ]])
+                'attr' => ['placeholder' => 'First Name', 'class' => 'form-control', 'style' => 'color:white; height:2.7em']])
             ->add('lastname', TextType::class, [
                 'label' => false,
                 'required' => true,
                 'error_bubbling' => true,
-                'attr' => array(
-                    'placeholder' => 'Last Name',
-                    'class' => 'form-control',
-                    'style' => 'color:white; height:2.7em'
-                )])
+                'attr' => ['placeholder' => 'Last Name', 'class' => 'form-control', 'style' => 'color:white; height:2.7em']])
             ->add('emailaddress', EmailType::class, [
                 'label' => false,
                 'required' => true,
                 'error_bubbling' => true,
-                'attr' => [
-                    'placeholder' => 'Email Address',
-                    'pattern'     => '.{2,}',//minlength
-                    'class' => 'form-control',
-                    'style' => 'color:white; height:2.7em'
-                    ]])  
+                'attr' => ['placeholder' => 'Email Address', 'pattern' => '.{2,}', 'class' => 'form-control', 'style' => 'color:white; height:2.7em']])  
             ->add('phone', TextType::class, [
                 'label' => false,
                 'required' => true,
                 'error_bubbling' => true,
-                'attr' => [
-                    'placeholder' => 'Mobile Phone',
-                    'pattern'     => '.{2,}', //minlength
-                    'class' => 'form-control',
-                    'style' => 'color:white; height:2.7em'
-                    ]])
+                'attr' => ['placeholder' => 'Mobile Phone', 'pattern' => '.{2,}', 'class' => 'form-control', 'style' => 'color:white; height:2.7em']])
             ->add('age', TextType::class, [
                 'label' => false,
                 'required' => true,
                 'error_bubbling' => true,
-                'attr' => [
-                    'placeholder' => 'Age',
-                    'class' => 'form-control',
-                    'style' => 'color:white; height:2.7em'
-                    ]])
-            ->add('agreeterms', CheckboxType::class, ['label' => '','required' => true])
-            ->add('agreeemails', CheckboxType::class, ['label' => '','required' => true])
-            ->add('agreepartners', CheckboxType::class, ['label' => '','required' => true])
+                'attr' => ['placeholder' => 'Age', 'class' => 'form-control', 'style' => 'color:white; height:2.7em']])
+            ->add('optindetails', CollectionType::class, [
+                'entry_type' => SubscriberOptInType::class, 
+                'required' => true, 
+                'error_bubbling' => true])
             ->add('submit', SubmitType::class, [
                 'label' => 'Sign Up',
                 'attr' => [
                     'class' => 'smoothScroll btn btn-danger sb-button',
-                    'style' => 'margin-bottom:2em;'
-                    ]
-        ])
-             ;
+                    'style' => 'margin-bottom:2em;']]);
     }
     
     /**
     * @param OptionsResolverInterface $resolver
     */
     public function configureOptions(OptionsResolver $resolver) {
-        $resolver->setDefaults(['data_class' => 'AppBundle\Entity\Subscriber']);
+        $resolver->setDefaults(['data_class' => 'AppBundle\Entity\SubscriberDetails']);
     }
     /**
      * @return string
