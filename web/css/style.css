@@ -1409,3 +1409,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.backimgone {
+    background-image: url(../images/img_7.jpg);
+}
+
+.backimgtwo {
+    background-image: url(../images/img_8.jpg);
+}
+
+.backimgthree {
+    background-image: url(../images/img_10.jpg);
+}
+
+.backimgfour {
+    background-image: url(../images/full_image_1.jpg);
+}
