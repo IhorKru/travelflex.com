@@ -14,7 +14,7 @@ class SubscriberOptInType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         
         $builder
-            ->add('agreeterms', CheckboxType::class, ['label' => '','required' => true])
+            ->add('agreeterms', CheckboxType::class, ['label' => '','required' => true, 'error_bubbling' => true])
             ->add('agreeemails', CheckboxType::class, ['label' => '','required' => true])
             ->add('agreepartners', CheckboxType::class, ['label' => '','required' => true])
                 ;

@@ -42,7 +42,10 @@ class SubscriberType extends AbstractType {
                 'required' => true,
                 'error_bubbling' => true,
                 'attr' => ['placeholder' => 'Age', 'class' => 'form-control', 'style' => 'color:white; height:2.7em']])
-            ->add('optindetails', CollectionType::class, ['entry_type' => SubscriberOptInType::class])    
+            ->add('optindetails', CollectionType::class, [
+                'entry_type' => SubscriberOptInType::class, 
+                'required' => true, 
+                'error_bubbling' => true])
             ->add('submit', SubmitType::class, [
                 'label' => 'Sign Up',
                 'attr' => [
