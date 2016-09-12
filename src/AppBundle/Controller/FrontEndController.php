@@ -155,13 +155,13 @@ class FrontEndController extends Controller
         if($form2->isValid() && $form2->isSubmitted()) {
             $name = $form2['name'] ->getData();
             $emailaddress = $form2['emailaddress'] ->getData();
-            $phone = $form2['phone'] ->getData();
+            $subject = $form2['subject'] ->getData();
             $message = $form2['message'] ->getData();
             $query4 = $em ->createQuery('SELECT MAX(m.id) FROM AppBundle:Contact m');
             $newContact ->setId($query4->getSingleScalarResult() + 1);
             $newContact ->setName($name);
             $newContact ->setEmailAddress($emailaddress);
-            $newContact ->setPhone($phone);
+            $newContact ->setSubject($subject);
             $newContact ->setMessage($message);
             $em->persist($newContact);
             $em->flush();
@@ -369,6 +369,6 @@ class FrontEndController extends Controller
     }
     
     private function generateEmailUrl($url) {
-        return "http://travelflex.com" . $this->container->get('router')->getContext()->getBaseUrl() . $url;
+        return "http://travelflex.mediaff.com" . $this->container->get('router')->getContext()->getBaseUrl() . $url;
     }
 }

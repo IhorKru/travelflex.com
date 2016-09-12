@@ -33,12 +33,12 @@ class ContactType extends AbstractType {
                     'pattern'     => '.{2,}',//minlength
                     'class' => 'form-control input-lg'
                     ]])
-            ->add('phone', TextType::class, [
+            ->add('subject', TextType::class, [
                 'label' => false,
                 'required' => true,
                 'error_bubbling' => true,
                 'attr' => [
-                    'placeholder' => 'Phone',
+                    'placeholder' => 'Subject',
                     'class' => 'form-control input-lg'
                 ]
             ])
