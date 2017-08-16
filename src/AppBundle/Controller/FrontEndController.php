@@ -38,7 +38,7 @@ class FrontEndController extends Controller
             
             $form1->handleRequest($request);
             
-            if($form1->isValid() && $form1->isSubmitted())
+            if($form1->isSubmitted() && $form1->isValid())
             {
                 //getting data from the form
                 $firstname = $form1['firstname']->getData();
@@ -152,7 +152,7 @@ class FrontEndController extends Controller
         
         $form2->handleRequest($request);
         $em = $this ->getDoctrine() ->getManager();
-        if($form2->isValid() && $form2->isSubmitted()) {
+        if($form2->isSubmitted() && $form2->isValid()) {
             $name = $form2['name'] ->getData();
             $emailaddress = $form2['emailaddress'] ->getData();
             $subject = $form2['subject'] ->getData();
@@ -165,15 +165,13 @@ class FrontEndController extends Controller
             $newContact ->setMessage($message);
             $em->persist($newContact);
             $em->flush();
-            
-             //create email
 
-             $message = Swift_Message::newInstance()
-                 ->setSubject('TravelFlex.com | Question from Website')
-                 ->setFrom($newContact->getEmailAddress())
-                 ->setTo('m@mediaff.com')
-                 ->setContentType("text/html")
-                 ->setBody($newContact->getMessage());
+            $message = Swift_Message::newInstance()
+                ->setSubject('TravelFlex.com | Question from Website')
+                ->setFrom($newContact->getEmailAddress())
+                ->setTo('m@mediaff.com')
+                ->setContentType("text/html")
+                ->setBody($newContact->getMessage());
 
              //send email
              $this->get('mailer')->send($message);
@@ -202,7 +200,7 @@ class FrontEndController extends Controller
         $userid = $subscriber ->getId();
 
         if(!$subscriber) {
-            throw $this->createNotFoundException('U bettr go awai!');
+
         } else {
             $newOptInDetails = $em ->getRepository('AppBundle:SubscriberOptInDetails') ->findOneBy(['user' => $userid, 'resourceid' => 7]);
             $newOptInDetails ->setOptindate(new DateTime());
@@ -270,7 +268,7 @@ class FrontEndController extends Controller
         $subscriber = $em->getRepository('AppBundle:SubscriberDetails') ->findOneBy(['emailaddress' => $emailaddress]);
         
         if(!$subscriber) {
-            throw $this->createNotFoundException('U bettr go awai!');
+
         } else {
             $query3 = $em ->createQuery('SELECT MAX(u.id) FROM AppBundle:SubscriberOptOutdetails u');
             $newOptOutDetails ->setId($query3->getSingleScalarResult() + 1);
@@ -299,7 +297,7 @@ class FrontEndController extends Controller
         
         $form->handleRequest($request);
         
-        if($form->isValid() && $form->isSubmitted()) {
+        if($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $subscriber = $em->getRepository('AppBundle:SubscriberDetails')->findOneByEmailaddress($unsubscriber->getEmailaddress());
 
